@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Planta Interativa - Tour 360°</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    img.planta {
+      width: 100%;
+      display: block;
+      height: auto;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .hotspot {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: #2f6f6f;
+      border: 2px solid white;
+      border-radius: 50%;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+      z-index: 10;
+    }
+    .hotspot:hover {
+      background: #4aa6a6;
+    }
+    .tooltip {
+      position: absolute;
+      background: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      font-size: 14px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+      transform: translate(-50%, -120%);
+      z-index: 11;
+    }
+    .hotspot:hover + .tooltip {
+      opacity: 1;
+    }
+    #erro-img {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" aria-label="Planta baixa interativa">
+    <img src="planta.jpg" alt="Planta baixa do local" class="planta"
+         onerror="this.style.display='none'; document.getElementById('erro-img').style.display='block';" />
+
+    <p id="erro-img">
+      Imagem da planta baixa não encontrada.<br />
+      Verifique se o arquivo <strong>planta.jpg</strong> está na mesma pasta que este arquivo HTML.
+    </p>
+
+    <!-- Hotspots -->
+
+    <a href="https://kuula.co/share/collection/7DYZw?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&inst=pt" target="_blank" rel="noopener"
+       class="hotspot" style="left: 20%; top: 65%;" aria-label="Loja 1 - Tour 360"></a>
+    <div class="tooltip" style="left: 20%; top: 65%;">Loja 1</div>
+
+    <a href="https://kuula.co/share/collection/7DYZ2?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&inst=pt" target="_blank" rel="noopener"
+       class="hotspot" style="left: 60%; top: 65%;" aria-label="Loja 2 - Tour 360"></a>
+    <div class="tooltip" style="left: 60%; top: 65%;">Loja 2</div>
+
+    <a href="https://kuula.co/share/collection/7DYZ3?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&inst=pt" target="_blank" rel="noopener"
+       class="hotspot" style="left: 82%; top: 45%;" aria-label="Loja 3 - Tour 360"></a>
+    <div class="tooltip" style="left: 82%; top: 45%;">Loja 3</div>
+
+    <a href="https://kuula.co/share/collection/7DYZC?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&inst=pt" target="_blank" rel="noopener"
+       class="hotspot" style="left: 94%; top: 70%;" aria-label="Loja 4 - Tour 360"></a>
+    <div class="tooltip" style="left: 94%; top: 70%;">Loja 4</div>
+  </div>
+</body>
+</html>
